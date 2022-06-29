@@ -3,17 +3,18 @@ from tkinter import ttk
 
 
 def update():
-    a = first_entry.get()
-    b = last_entry.get()
-    print(a, b)
+    start_chrome = int(first_entry.get())
+    end_chrome = int(last_entry.get())
+    chromes_list = [x for x in range(start_chrome, end_chrome + 1)]
+    print(chromes_list)
 
 
 # Root screen
 root = Tk()
 
 # StringVar()
-first_chrome = StringVar(root)
-last_chrome = StringVar(root)
+first_chrome_str = StringVar(root)
+last_chrome_str = StringVar(root)
 user = StringVar(root)
 
 # Creating form grid layout
@@ -22,9 +23,9 @@ form.grid()
 
 # Widget Creation
 status_label = ttk.Label(form, text='Status Updater', padding=15)
-first_entry = ttk.Entry(form, textvariable=first_chrome)
+first_entry = ttk.Entry(form, textvariable=first_chrome_str)
 to_label = ttk.Label(form, text='to')
-last_entry = ttk.Entry(form, textvariable=last_chrome)
+last_entry = ttk.Entry(form, textvariable=last_chrome_str)
 user_entry = ttk.Entry(form, textvariable=user)
 update_button = ttk.Button(form, text='Update', command=lambda: update())
 
